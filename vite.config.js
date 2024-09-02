@@ -1,15 +1,13 @@
 import { defineConfig } from 'vite';
-import { viteStaticCopy } from 'vite-plugin-static-copy';
 
 export default defineConfig({
-  plugins: [
-    viteStaticCopy({
-      targets: [
-        { src: 'public/_redirects', dest: '' },
-      ],
-    }),
-  ],
   build: {
+    rollupOptions: {
+      input: {
+        index: 'index.html',
+        scoreboard: 'scoreboard.html'
+      },
+    },
     outDir: 'dist',
   },
   base: '/',
