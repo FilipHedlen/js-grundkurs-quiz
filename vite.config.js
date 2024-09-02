@@ -1,11 +1,13 @@
 import { defineConfig } from 'vite';
-import copy from 'vite-plugin-copy';
+import { viteStaticCopy } from 'vite-plugin-static-copy';
 
 export default defineConfig({
   plugins: [
-    copy([
-      { src: 'public/_redirects', dest: '' }
-    ])
+    viteStaticCopy({
+      targets: [
+        { src: 'public/_redirects', dest: '' },
+      ],
+    }),
   ],
   build: {
     outDir: 'dist',
